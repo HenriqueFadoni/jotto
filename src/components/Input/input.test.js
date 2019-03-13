@@ -7,10 +7,7 @@ import Input from './input';
 const setup = (initialState = {}) => {
     // const store = storeFactory(initialState);
     const wrapper = shallow(<Input {...initialState}/>);
-    console.log(wrapper.debug()); 
 }
-
-setup();
 
 describe('render', () => {
     describe('word has not been guessed', () => {
