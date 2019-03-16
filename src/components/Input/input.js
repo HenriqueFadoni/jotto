@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { guessWord } from '../../store/actions/index';
 
 export class Input extends Component {
+    constructor (props) {
+        super(props);
+        this.inputBox = React.createRef();
+    }
     render() {
         const contents = this.props.success
             ? null
@@ -11,6 +15,7 @@ export class Input extends Component {
                 <form className="form-inline">
                     <input 
                         data-test="input-box"
+                        ref={this.inputBox}
                         className="mb-2 mx-sm-3"
                         id="word-guess"
                         type="text"
@@ -19,6 +24,7 @@ export class Input extends Component {
                         data-test="submit-button"
                         type="submit"
                         className="btn btn-primary mb-2"
+                        onClick={() => this.props.guessWord('train')}
                         type="submit">
                         Submit
                     </button>
